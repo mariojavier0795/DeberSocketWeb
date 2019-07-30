@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+
+  .container
+    .row
+      .col-sm-6
+        h2 Comenzar
+        form#startForm(action="/start", method="POST", role="form")
+          .form-group
+            label Color jugador
+            div
+              .btn-group(data-toggle="buttons")
+                label.btn.btn-default.active
+                  input(type="radio", name="player-color", value="white", checked="checked")
+                  | Blanco
+                label.btn.btn-default
+                  input(type="radio", name="player-color", value="black")
+                  | Negro
+          .form-group
+            label(for="playerName") Nombre
+            input#playerName.form-control(type="text", name="player-name", placeholder="Jugador 1")
+          button.btn.btn-primary(type="submit") Iniciar Juego
+      .col-sm-6
+        h2 Unirse a un Juego
+        form#joinForm(action="/join", method="POST", role="form")
+          .form-group
+            label(for="gameID") ID Jugador
+            input#gameID.form-control(type="text", name="game-id")
+          .form-group
+            label(for="playerName") Nombre
+            input#playerName.form-control(type="text", name="player-name", placeholder="Player 2")
+          button.btn.btn-primary(type="submit") Unirse al Juego
+
+  script(src="/js/jquery.min.js")
+  script(src="/js/bootstrap.min.js")
